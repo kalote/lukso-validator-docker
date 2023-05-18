@@ -27,6 +27,8 @@ wget https://raw.githubusercontent.com/lukso-network/network-configs/main/mainne
 - copy your keystores*.json files in it (1 per validator)
 - create a file containing your password (e.g. ` /home/ubuntu/secrets/password.txt`)
 - run the docker-compose file (`docker-compose up -d`). (note: it will freeze on the `prysm_validator_import`, that's good sign, it imports the keys (it takes around 15min to import 1k keys))
+- you can check that everything was run correctly with `docker-compose logs prysm_validator_import`. You should see a message like the following:
+
 - when it's done, you can stop your containers and remove the lines referring to the `prysm_validator_import` container (123-124 and also from line 97 to 115) from the docker-compose file
 
 ```bash
