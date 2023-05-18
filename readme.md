@@ -2,7 +2,7 @@
 
 This is a set of files used to run a LUKSO validator using docker-compose
 
-## Setup
+## How to set it up
 
 - create `lukso-mainnet/` folder
 - create `lukso-mainnet/configs` folder
@@ -25,9 +25,14 @@ wget https://raw.githubusercontent.com/lukso-network/network-configs/main/mainne
 - copy your keystores*.json files in it (1 per validator)
 - create a file containing your password (e.g. `/home/ubuntu/secrets/password.txt`)
 - run the docker-compose file (`docker-compose up -d`). it will freeze on the `prysm_validator_import`, that's good sign, it imports the keys (it takes around 15min to import 1k keys)
-- later, you can remove the `prysm_validator_import` container from the docker-compose file and re-run docker-compose
+- later, you can remove the lines referring to the `prysm_validator_import` container (123-124 and also from line 97 to 115) from the docker-compose file and re-run docker-compose:
 
-## Run
+```bash
+docker-compose down
+docker-compose up -d
+```
+
+## How to run
 
 ```bash
 docker-compose up -d
